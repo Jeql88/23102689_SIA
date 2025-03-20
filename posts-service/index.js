@@ -3,7 +3,7 @@ const express = require('express');
 const { createServer } = require('http');
 const { makeExecutableSchema } = require('@graphql-tools/schema');
 const { WebSocketServer } = require('ws');
-const { useServer } = require('graphql-ws');
+const { useServer } = require('graphql-ws/use/ws');
 const { PrismaClient } = require('@prisma/client');
 const { PubSub } = require('graphql-subscriptions');
 const { execute, subscribe } = require('graphql');
@@ -60,7 +60,7 @@ const resolvers = {
   },
   Subscription: {
     postAdded: {
-      subscribe: () => pubsub.asyncIterator(['POST_ADDED']),
+      subscribe: () => pubsub.asyncIterableIterator(['POST_ADDED']),
     },
   },
 };
