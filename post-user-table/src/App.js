@@ -1,12 +1,12 @@
 import React from "react";
 import PostUserTable from "./PostUserTable";
+import { Container } from "@mui/material";
 
 function App() {
   return (
-    <div>
-      <h1>Posts Per User</h1>
+    <Container>
       <PostUserTable />
-    </div>
+    </Container>
   );
 }
 
